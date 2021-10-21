@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing 24h</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            width: 1000px;
+            margin: 0 auto;
+            background: #f1f1f1;
+        }
+
+        #menu-top{
+            background: #8B1E3F;
+            height: 40px;
+            width: 1000px;
+            position: fixed;
+            top: 0;
+        }
+
+        #menu-top>ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu-top>ul>li{
+            list-style-type: none;
+            float: left;
+            position: relative;
+        }
+
+        @keyframes fade-color{
+            from{background-color: #8B1E3F;}
+            to{background-color: #DB4C40;}
+        }
+
+        #menu-top>ul>li>ul{
+            width: 170px;
+            height: auto;
+            background-color: #8B1E3F;
+            position: absolute;
+            left: 175px;
+            padding: 0;
+            display: none;
+            border-radius: 2rem
+        }
+
+        #menu-top>ul>li>ul>li{
+            list-style-type: none;   
+        }
+
+        #menu-top>ul>li>ul>li:hover{
+            background:#DB4C40;
+            border-radius: 2rem;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            animation-name: fade-color;
+            animation-duration: 0.35s;
+        }
+
+        #menu-top>ul>li>ul>li>a{
+            text-decoration: none;
+            color: white;
+            display: block;
+            border-top: 1px solid #ccc;
+            line-height: 30px;
+            text-indent: 10px;
+        }
+
+        #menu-top>ul>li:hover{
+            background:#DB4C40;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            animation-name: fade-color;
+            animation-duration: 0.35s;
+        }
+
+        #menu-top>ul>li:hover>ul{
+            display: block;
+            left: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        #menu-top>ul>li>a{
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            padding: 0 10px 0 10px;
+        }
+
+        #menu-top>ul>li>a.active{
+            background: #DB4C40;
+        }
+
+        #banner{
+            height: auto;
+            width: 100%;
+            padding-top: 50px;
+        }
+
+        #banner img{
+            width: 1000px;
+            height: 350px;
+        }
+
+        #main{
+            margin-top: 10px;
+        }
+
+        #main #right{
+            width: 300px;
+            min-height: 400px;
+            float: right;
+        }
+
+        #main #left span{
+            font-weight: normal;
+            font-size: 22px;
+        }
+
+        #main #left{
+            width: 700px;
+            height: auto;
+            float: left;
+            padding-left: 10px;
+            padding-right: 5px;
+        }
+
+        #main #left img{
+            width: 690px;
+            padding-right: 5px;
+        }
+        #main #left p{
+            font-size: 16.5px;
+        }
+
+        #main #left ul{
+            font-size: 16.5px;
+        }
+
+        #footer{
+            background: #8B1E3F;
+            width: 1000px;
+            text-align: center;
+            height: auto;
+            color: white;
+            clear: right;
+            float: right;
+        }
+
+        #main #right .menu-right ul{
+            margin: -15px 0 0 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            background: #f7ecd9;
+        }
+        
+        #main #right .menu-right ul li{
+            list-style-type: none;
+        }
+
+        #main #right .menu-right ul li:hover{
+            background: #DB4C40;
+        }
+
+        #main #right .menu-right ul li span{
+            margin: 0 10px 0 -20px;
+        }
+
+        #main #right .menu-right ul li a{
+            display: block;
+            text-decoration: none;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+            color: black;
+        }
+
+        #main #right .menu-right h3{
+            background: #8B1E3F;
+            height: 40px;
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 40px;
+            color: white;
+        }
+        #main #right .menu-right1 ul{
+            margin: -15px 0 0 0;
+            padding: 0;
+            text-align: justify;
+            border: 0.25px solid #ccc;
+            background: #f7ecd9;
+        }
+        
+        #main #right .menu-right1 ul li{
+            list-style-type: none;
+            margin-bottom: 10px;
+            text-indent: 0px;
+            height: 40px;
+            line-height: normal;
+            padding: 0 5px 0 5px;
+        }
+
+        #main #right .menu-right1 ul li:hover{
+            background: #DB4C40;
+        }
+
+        #main #right .menu-right1 ul li span{
+            margin: 0 10px 0 10px;
+        }
+
+        #main #right .menu-right1 ul li a{
+            display: block;
+            text-decoration: none;
+            color: black
+        }
+
+        #main #right .menu-right1 h3{
+            background: #8B1E3F;
+            height: 40px;
+            margin-top: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 40px;
+            color: white;
+        }
+
+        /* Style the form element with a border around it */
+        form {
+            border: 0px solid #f1f1f1;
+            margin-bottom: 10px;
+        }
+
+/* Add some padding and a grey background color to containers */
+        .container1 {
+            width: 300px;
+            background-color: #8B1E3F;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            text-align: center;
+            color: white;
+        }
+
+        .container1 h2{
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .container3 {
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        /* Style the input elements and the submit button */
+        input[type=text], input[type=submit] {
+        width: 100%;
+        padding: 5px;
+        margin: 3px 0 0 0;
+        display: inline-block;
+        border: 0.5px solid #ccc;
+        box-sizing: border-box;
+        }
+
+        /* Add margins to the checkbox */
+        input[type=checkbox] {
+        margin-top: 5px;
+        }
+
+        /* Style the submit button */
+        input[type=submit] {
+        background-color: #8B1E3F;
+        color: white;
+        border: none;
+        }
+        
+        #footer .footer-left{
+            width: 25%;
+            height: 170px;
+            float: left;
+            position: relative;
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-top: 15px;
+            text-align: center;
+            color: white;
+            font-size: 13.5px;
+            background-color: #8B1E3F;
+        }
+
+        #footer .footer-left a{
+            text-decoration: none;
+        }
+
+        #footer .footer-left a img{
+            width: 50% ;
+            border-radius: 50%;
+        }
+
+        #footer .footer-left p{
+            line-height: normal;
+            text-align:center;
+        }
+
+        #footer .footer-right{
+            width: 75%;
+            height: 170px;
+            background-color: #8B1E3F;
+            float: left;
+            position: relative;
+            padding-left: 15px;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        #footer .footer-right1{
+            float: left;
+            height: 170px;
+            text-align: justify;
+        }
+
+        #footer .footer-right1a{
+            float: left;
+            width: 170px;
+            line-height: 3rem;
+            padding-top: 19px;
+            font-size: 13.5px;
+        }
+
+        #footer .footer-right1b{
+            float: left;
+            width: 170px;
+            line-height: 3rem;
+            padding-top: 19px;
+            padding-left: 15px;
+            font-size: 13.5px;
+        }
+
+        #footer .footer-right1a article a{
+            text-decoration: none;
+            color: white;
+        }
+
+        #footer .footer-right1b article a{
+            text-decoration: none;
+            color: white;
+        }
+
+        #footer .footer-right2{
+            float: left;
+            width: 395px;
+            height: 170px;
+            font-size: 13.5px;
+            text-align: justify;
+            line-height: 3rem;
+            padding-top: 19px;
+            padding-right: 15px;
+        }
+
+        #footer .footer-right2 p{
+            margin: 0;
+        }        
+    </style>
+</head>
+<body>
+    <div id="menu-top">
+        <ul>
+            <li><a href="#" tittle="Trang chủ" class="active">Trang chủ</a></li>
+            <li><a href="#" tittle="Brands">Brands</a>
+                <ul>
+                    <li><a href="">Chuyên mục Brands</a></li>
+                    <li><a href="">Danh bạ Brands</a></li>
+                    <li><a href="">Danh bạ Công ty</a></li>
+                </ul>
+            </li>
+            <li><a href="#" tittle="Agency">Agency</a>
+                <ul>
+                    <li><a href="">Chuyên mục Agency</a></li>
+                    <li><a href="">Agency Networks</a></li>
+                    <li><a href="">Từ khóa Agency</a></li>
+                </ul>
+            </li>
+            <li><a href="#" tittle="Strategy">Strategy</a></li>
+            <li><a href="#" tittle="Creative">Creative</a></li>
+            <li><a href="#" tittle="Thị trường">Thị trường</a>
+                <ul>
+                    <li><a href="">Chuyên mục Thị trường</a></li>
+                    <li><a href="">Danh bạ Thị trường</a></li>
+                    <li><a href="">Danh bạ Ngành hàng</a></li>
+                </ul>
+            </li>
+            <li><a href="#" tittle="Kiến thức">Kiến thức</a>
+                <ul>
+                    <li><a href="">Chuyên mục Kiến thức</a></li>
+                    <li><a href="">Passport to Marketing</a></li>
+                    <li><a href="">Viral Marketing</a></li>
+                    <li><a href="">Từ khóa Chuyên môn</a></li>
+                </ul>
+            </li>
+            <li><a href="#" tittle="Quan điểm">Quan điểm</a></li>
+            <li><a href="#" tittle="Cộng đồng">Cộng đồng</a></li>
+            <li><a href="#" tittle="Campaign">Campaign</a></li>
+            <li><a href="#" tittle="Việc làm">Việc làm</a></li>
+            <li><a href="#" tittle="Liên hệ">Liên hệ</a></li>
+        </ul>
+    </div>
+
+    <div id="banner">
+        <img src="./Marketing 24h/banner1.jpg" alt="">
+    </div>
+    
+    <div id="main">
+        <div id="left">
+            <h1>Novaon BizVac Series: Webinar về thương mại điện tử quy tụ hơn 200 C-Levels của các nhãn hàng lớn</h1>
+            <span>Với kinh nghiệm 15 năm triển khai Marketing cho hơn 1.000 doanh nghiệp trên kênh thương mại điện tử, Novaon tổ chức sự kiện “Kinh nghiệm triển khai e-Commerce Marketing cho các nhãn hàng lớn” diễn ra vào ngày 21/10 này.</span>
+            <h3>Rào cản khi doanh nghiệp tham gia thương mại điện tử</h3>
+            <p>Thương mại điện tử được đánh giá là một kênh tiềm năng. Nhưng tận dụng sức mạnh khi gia nhập thương mại điện tử (TMĐT) thế nào, không phải doanh nghiệp nào cũng biết và làm tốt. Có những sai lầm khiến doanh nghiệp trả giá bằng tiền bạc và thời gian, hoặc hơn thế nữa. Đứng trong bối cảnh sau đại dịch, khi nền kinh tế kiệt quệ, có những dấu hiệu gồng gánh, không phải doanh nghiệp nào cũng còn đủ tiềm lực và kiên nhẫn để “thử và sai”. Vì thế, những giải pháp đi nhanh, những lối tắt với chủ đề này là lựa chọn ưu tiên.</p>
+            <p>Theo quan sát của đơn vị tư vấn như Novaon, khi tham gia TMĐT, ngoài trường hợp làm tốt, doanh nghiệp rơi vào một trong các trạng thái sau:</p>
+                <ul>
+                    <li>Doanh nghiệp mới triển khai, còn nhiều bỡ ngỡ</li>
+                    <li>Đang triển khai marketing trên kênh TMĐT nhưng cầm chừng, tiềm năng thấp</li>
+                    <li>Đã chạy tốt nhưng đang có dấu hiệu bão hoà hoặc phụ thuộc</li>
+                </ul>
+            <p>Thường thì doanh nghiệp sẽ va vào tình huống từ 1 đến 3, vấn đề sẽ được giải quyết khi: doanh nghiệp không ngại “thử và sai” liên tục để rút ra kinh nghiệm, hoặc kiên nhẫn học hỏi từ những doanh nghiệp đã có kinh nghiệm.</p>
+            <p>Thấu hiểu nhu cầu chung, với kinh nghiệm 15 năm triển khai Marketing cho hơn 1.000 doanh nghiệp trên kênh thương mại điện tử, Novaon tổ chức sự kiện “Kinh nghiệm triển khai e-Commerce Marketing cho các nhãn hàng lớn” diễn ra vào ngày 21/10 này. Sự kiện dự kiến quy tụ 200 nhãn hàng có doanh thu năm trên 100 tỉ, với nội dung chương trình thực tế, dàn diễn giả chất lượng đến từ Novaon và Facebook. Sự kiện hứa hẹn cung cấp nhiều insight về e-Commerce của các doanh nghiệp lớn.</p>
+            <img src="./Marketing 24h/ảnh bài viết 1.jpg" alt="">
+            <h3>Agenda sự kiện</h3>
+                <ul>
+                    <li>Phần 1: Các sai lầm thường gặp trong chiến lược e-Commerce – Ông Lê Viết Hải Sơn</li>
+                    <li>Phần 2: Các sai lầm thường gặp trong chiến thuật triển khai của doanh nghiệp – Bà Hoàng Thảo</li>
+                    <li>Phần 3: Bài học đúc rút từ các case study điển hình – Bà Trân Lê</li>
+                    <li>Phần 4: Q&A cùng diễn giả</li>
+                </ul>
+            <img src="./Marketing 24h/ảnh bài viết 2.jpg" alt="">
+            <h3>Dàn diễn giả với kinh nghiệm sâu sắc trong ngành</h3>
+            <h4>1. Ông Lê Viết Hải Sơn – Vice Chairman, Novaon Group</h4>
+            <p>Trước khi đồng hành cùng Novaon, ông Lê Viết Hải Sơn từng kiêm nhiệm nhiều vị trí chủ chốt tại các tập đoàn lớn như Vingroup, Mercedes. Ông hiện đang là người đứng đầu của các thương hiệu thuộc khối Ecom và Novaon Digital – hai đơn vị đã và đang hỗ trợ nhiều doanh nghiệp biến TMĐT thành công cụ đắc lực trong mục tiêu tăng trưởng doanh thu. Trở thành chuyên gia hàng đầu nhờ khả năng chiến lược nhạy bén, ông Sơn sẽ chia sẻ những kinh nghiệm, đặc biệt là các sai lầm thường gặp trong triển khai TMĐT.</p>
+            <h4>2. Bà Trân Lê – Partner Manager tại Facebook Vietnam, Singapore</h4>
+            <p>Bà Trân Lê hiện đang đảm nhiệm vị trí Partner Manager tại Facebook Việt Nam và Singapore. Công tác nhiều năm tại nền tảng mạng xã hội lớn nhất thế giới, bà Trân nắm giữ nhiều insight về e-Commerce. Các “best practice” – chuẩn mực thực hiện và các case study hay trong thực tế cũng là những điều đáng mong chờ trong phần chia sẻ của bà Trân.</p>
+            <h4>3. Bà Hoàng Thảo – COO Novaon Digital</h4>
+            <p>Với trên 12 năm làm việc tại tập đoàn Novaon, bà Hoàng Thảo – Giám đốc Vận hành khối Digital là người có nhiều kinh nghiệm quan sát cách triển khai của đội ngũ Novaon với khách hàng. Theo bà, doanh nghiệp đã có hoạt động thương mại điện tử lâu năm vẫn có thể mắc phải những sai lầm mang tính chiến thuật như kênh, nội dung, ngân sách... Những sai lầm này có ảnh hưởng không nhỏ và không phải doanh nghiệp nào cũng nhìn ra dễ dàng. Nội dung cụ thể sẽ được bà Thảo chia sẻ chi tiết trong webinar.</p>
+            <img src="./Marketing 24h/ảnh bài viết 3.jpg" alt="">
+            <h3>Sự đồng hành của hơn 200 nhãn hàng</h3>
+            <p>Webinar là buổi 2 tiếp nối chuỗi sự kiện “Novaon BizVac Series 2021” được Novaon tổ chức (6/10 - 14/11). Sự kiện có sự tham gia của trên 250 quý khách hàng là C-level của các nhãn hàng lớn như Vinamilk, Evashoes, Phuc Hung Group, Đại Việt Group, Dược Melika, Hasaki, Nutricare, Kawasaki...</p>
+            <p>Về kết quả, sau buổi 1, chuỗi sự kiện đã chứng tỏ được mức độ thực tế và phản hồi hài lòng từ phía khách tham gia, khi trên 200 nhãn hàng đã đồng hành cùng sự kiện tới phút cuối cùng, thậm chí thời lượng sự kiện phải tăng lên… 1 tiếng đồng hồ. Đây là tín hiệu tốt cho thấy “thương hiệu Novaon” trong các sự kiện tổ chức, hứa hẹn một sự kiện chất lượng và “cháy” trong buổi 2 ngày 21/10 này.</p>
+            <p>Hiện tại, sự kiện buổi 2 cũng đã được gần 100 nhãn hàng đăng ký và con số vẫn không ngừng tăng lên.</p>
+            <p>Mời các CEO, CMO, CSO nhanh tay đăng ký, để chúng ta tiếp tục có cơ hội thảo luận về chủ đề e-Commerce giữa tâm bão COVID-19 <a href="">tại đây</a>.</p>
+
+        </div>
+        <div id="right">
+            <div class="menu-right">
+                <h3>Danh mục</h3>
+                <ul>
+                    <li><a href="">Bài mới</a></li>
+                    <li><a href="">Cộng đồng</a></li>
+                    <li><a href="">Bài hot</a></li>
+                    <li><a href="">Thảo luận</a></li>
+                </ul>
+            </div>
+            <div class="menu-right1">
+                <h3>Tin tức tuyển dụng</h3>
+                <ul>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>YouNet Group tuyển dụng Business Development Executive</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Buzzmetrics tuyển dụng Senior Research Executive</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Fans Communications tuyển dụng Social Media Executive</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Louistar Việt Nam tuyển dụng Digital Marketing Executive</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Louistar Việt Nam tuyển dụng Giám Đốc Kinh Doanh</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Louistar Việt Nam tuyển dụng Digital Marketing Executive</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Goody Group tuyển dụng Trade Marketing Manager</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-ok-circle"></span>Fans Communication tuyển dụng Art Director</a></li>
+                </ul>
+            </div>
+            
+            <form action="action_page.php">
+                <div class="container1">
+                  <h2>Đăng ký nhận bản tin tại đây</h2>
+                  <p>*Vui lòng điền chính xác thông tin</p>
+                </div>
+              
+                <div class="container2" style="background-color:white">
+                  <input type="text" placeholder="Name" name="name" required>
+                  <input type="text" placeholder="Email address" name="mail" required>
+                  <label>
+                    <input type="checkbox" checked="checked" name="subscribe"> Xác nhận đăng ký
+                  </label>
+                </div>
+              
+                <div class="container3">
+                  <input type="submit" value="Đăng ký">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-left">
+            <a href=""><img src="./Marketing 24h/Logo1.jpg" alt=""></a>
+            <p> © 2012-2021 Marketing 24h. <br> Cộng đồng Marketing và Xây dựng Thương hiệu toàn diện tại Việt Nam.</p>
+        </div>
+        <div class="footer-right">
+            <div class="footer-right1">
+                <div class="footer-right1a">
+                    <h4>Giới thiệu</h4>
+                    <article>
+                        <a href="">Về Marketing 24h</a>
+                    </article>
+                    <article>
+                        <a href=""><span class="glyphicon glyphicon-envelope"></span> help@marketing24h.net</a>
+                    </article>
+                    <article> <span class="glyphicon glyphicon-phone-alt"></span> (028) 3602 6800</article>
+                </div>
+                <div class="footer-right1b">
+                    <h4>Thỏa thuận</h4>
+                    <article>
+                        <a href="">Điều khoản sử dụng</a>
+                    </article>
+                    <article>
+                        <a href="">Nội quy cộng đồng</a>
+                    </article>
+                    <article>
+                        <a href="">Quyền riêng tư</a>
+                    </article>
+                </div>
+            </div>
+            <div class="footer-right2">
+                <h4>Giấy phép</h4>
+                <p>Giấy phép ĐKKD số 0311614186 do Sở KH & ĐT cấp ngày 10/03/2012.</p>
+                <p>Giấy phép MXH số 194/GP-BTTTT ký ngày 21/05/2019.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
